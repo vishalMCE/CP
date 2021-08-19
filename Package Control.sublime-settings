@@ -1,0 +1,12 @@
+{
+	"bootstrapped": true,
+	"installed_packages":
+	[
+		"OLED Color Scheme",
+		"Package Control",
+		"Theme - Brogrammer",
+	],
+	"in_process_packages":
+	[
+	],
+}

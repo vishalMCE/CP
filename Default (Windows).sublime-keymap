@@ -1,0 +1,15 @@
+[
+	{
+	"keys": ["ctrl+d"], "command": "duplicate_line" 
+	},
+	{
+    "keys": ["alt+z"],
+    "command": "toggle_setting",
+    "args": { "setting": "word_wrap" }	
+	},
+	{ "save_on_focus_lost": true },
+	{ "keys": ["ctrl+q"], "command": "cancel_build" },
+	{
+    "auto_save_toggle_at_startup": true
+	}
+]

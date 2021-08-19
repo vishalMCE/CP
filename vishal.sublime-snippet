@@ -1,0 +1,71 @@
+<snippet>
+  <content><![CDATA[
+#include<bits/stdc++.h>
+using namespace std;
+#define ff              first
+#define ss              second
+#define int             long long
+#define pb              push_back
+#define mp              make_pair
+#define mt              make_tuple
+#define pi              pair<int,int>
+#define vi              vector<int>
+#define vii             vector<vi>
+#define um              unordered_map<int,int>
+#define pqb             priority_queue<int>
+#define pqs             priority_queue<int,vi,greater<int>>
+#define setbits(x)      __builtin_popcountll(x)
+#define mod             1000000007
+#define inf             1e18
+#define ps(x,y)         fixed<<setprecision(y)<<x
+#define w(x)            int x; cin>>x; while(x--)
+#define yes             cout<<"YES"
+#define no              cout<<"NO"
+#define endl            '\n'
+#define all(s)          s.begin(),s.end()
+#define f(x,a,n)        for(int x=a;x<n;++x)
+#define fr(x,n,a)       for(int x=n-1;x>=a;--x)
+#define input(x)        for(auto &e:x) cin>>e
+#define output(v)       for(auto it:v) cout<<it<<" "
+#define printpair(p)    cout<<p.ff<<" "<<p.ss<<endl;
+#define printmat(x,n)   f(i,0,n) { output(x[i]); cout<<endl; }
+#define inputmat(v,n,m) f(i,0,n)f(j,0,m){int x;cin>>x;v[i].pb(x);}
+#define inputpair(p)    cin>>p.ff>>p.ss;
+#define MAX_SIZE        1000005
+#define gcd(a,b)        __gcd(a,b)
+#define lcm(a,b)        (a*b)/__gcd(a,b)
+#define FIO ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+vi gen_rand(int lower, int upper, int n) {
+    vi ans(n); srand(time(0));
+    f(i,0,n) ans[i]=(rand()%(upper-lower+1)+lower);
+    return ans;
+}
+// int dp[MAX_SIZE];  int cnt=0;
+// int dp[1001][1001];  int cnt=0;
+
+
+
+
+
+
+int32_t main()
+{
+    FIO;
+    w(t)
+    {
+
+
+
+
+
+
+        cout<<'\n';
+    }
+}   
+]]></content>
+  <tabTrigger>vishal</tabTrigger>
+  <description></description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope >source.c++</scope >
+</snippet>
