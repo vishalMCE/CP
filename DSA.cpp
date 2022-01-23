@@ -78,8 +78,20 @@ void comma(string s, vi& v) {
         if(ss.peek()==',') ss.ignore();
     }
 }
-
-
+// decimal into bits
+string convert(int x){
+    string res;
+    while(x>0) {
+        res.push_back('0'+(x%2));
+        x/=2; 
+    }
+    reverse(res.begin(),res.end());
+    return res;
+}
+// mod
+int add(int x,int y,int MOD=mod){return((x%MOD)+(y%MOD))%MOD;}
+int sub(int x,int y,int MOD=mod){return((x%MOD)-(y%MOD)+MOD)%MOD;}
+int mul(int x,int y,int MOD=mod){return((x%MOD)*(y%MOD))%MOD;}
 
 
 /* <---------------------Array Problems-------------------> */
@@ -696,7 +708,34 @@ int query(vi tree, int start, int end, int treeNode, int left, int right) {
     int ans2 = query(tree,mid+1,end,2*treeNode+1,left,right);
     return ans1+ans2;
 }
-
+// Lazy Propagation
+void updateLazy(vi& tree, vi& lazy, int start, int end, int left, int right, int treeNode, int inc) {
+    if(start>end) return;
+    if(lazy[treeNode]!=0) {
+        tree[treeNode]=lazy[treeNode];
+        if(start!=end) {
+            lazy[2*treeNode]+=lazy[treeNode];
+            lazy[2*treeNode+1]+=lazy[treeNode];
+        }
+        lazy[treeNode]=0;
+    }
+    // No overlap
+    if(left>end || right<start) return;
+    // complete Overlap
+    if(left<=start && end<=right) {
+        tree[treeNode]+=inc;
+        if(start!=end){
+            lazy[2*treeNode]+=inc;
+            lazy[2*treeNode+1]+=inc;
+        }
+        return;
+    }
+    // Parital Overlap
+    int mid = (start+end)/2;
+    updateLazy(tree,lazy,start,mid,left,right,2*treeNode,inc);
+    updateLazy(tree,lazy,mid+1,end,left,right,2*treeNode+1,inc);
+    tree[treeNode]=min(tree[2*treeNode],tree[2*treeNode+1]);
+}
 
 
 

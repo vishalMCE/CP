@@ -11,7 +11,6 @@ using namespace std;
 #define pi              pair<int,int>
 #define vi              vector<int>
 #define vii             vector<vi>
-#define um              unordered_map<int,int>
 #define pqb             priority_queue<int>
 #define pqs             priority_queue<int,vi,greater<int>>
 #define setbits(x)      __builtin_popcountll(x)
@@ -28,8 +27,8 @@ using namespace std;
 #define input(x)        for(auto &e:x) cin>>e
 #define output(v)       for(auto it:v) cout<<it<<" "
 #define printpair(p)    cout<<p.ff<<" "<<p.ss<<endl;
-#define printmat(x,n)   f(i,0,n) { output(x[i]); cout<<endl; }
-#define inputmat(v,n,m) f(i,0,n)f(j,0,m){int x;cin>>x;v[i].pb(x);}
+#define print2d(x,n)    f(i,0,n) { output(x[i]); cout<<endl; }
+#define input2d(v,n,m)  f(i,0,n)f(j,0,m){int x;cin>>x;v[i].pb(x);}
 #define inputpair(p)    cin>>p.ff>>p.ss;
 #define MAX_SIZE        1000005
 #define gcd(a,b)        __gcd(a,b)
