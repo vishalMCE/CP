@@ -252,20 +252,16 @@ vii getSubsets(vi num){
 
 // generate permutaion of any numbers   O(n!)
 template<class X>
-void solve(X v,vector<X>& ans,int x){
-    if (x == v.size()) {
-        ans.pb(v);
-        return;
-    }
-    for (int i = x; i < v.size(); ++i) {
-        if(i!=x && v[i]==v[x])
-            continue;
-        swap(v[i], v[x]);
+void solve(X v, vector<X>& ans, int x) {
+    if(x==v.size()) { ans.pb(v); return; }
+    for(int i=x; i<v.size(); ++i) {
+        if(i!=x && v[i]==v[x]) continue;
+        swap(v[i],v[x]);
         solve(v,ans,x+1);
     }
 }
 template<typename X>
-vector<X> permute(X nums){
+vector<X> permute(X nums) {
     sort(all(nums));
     vector<X> ans;
     solve<X>(nums,ans,0);
@@ -273,12 +269,6 @@ vector<X> permute(X nums){
 }
 
 // nQueen
-void print(vii &v) {cont++;
-    f(i,0,v.size()) {
-        output(v[i]); cout<<endl; 
-    }
-    cout<<endl;
-}
 void print_numbers(vii &v) {cont++;
     cout<<"[";
     f(i,0,v.size()) {
@@ -597,15 +587,13 @@ vii solve(vi v, int k) {
     return ans;
 }
 // Nearest smaller elements  --  O(n)
-vi prevSmaller(vi v) {
-    int n = v.size();
-    stack<int> s;
-    vi ans(n);
+vi prevSmaller(const vi& v, int n) {
+    vi ans(n); 
+    stack<int>s;
     f(i,0,n) {
-        int x = -1;
         while(!s.empty() && s.top()>=v[i]) s.pop();
-        if(!s.empty()) x = s.top();
-        ans[i] = x;
+        if(s.empty()) ans[i]=-1;
+        else ans[i]=s.top();
         s.push(v[i]);
     }
     return ans;
@@ -675,7 +663,7 @@ void assign(vi& BIT, int index, int value, int n) {
     }
 }
 int range(const vi& BIT, int left, int right) { 
-    return query(BIT,right-1)-query(BIT,left-1);
+    return query(BIT,right)-query(BIT,left-1);
 } // left or right is position
 
 
