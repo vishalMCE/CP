@@ -791,13 +791,15 @@ vi factors(int n) {
 }
 // sieve of eratosthenes  --  O(n*log(log(n))) ~ of(n)
 vi SE(int n) {
-    vi prime(n+1), primes;
-    for(int x=2; x<=n; ++x) {
-        if(prime[x]) continue;
-        for(int u=2*x; u<=n; u+=x) prime[u] = x;
-        primes.pb(x);
-    }
-    return primes;
+    vector<bool> is_prime(n+1,true); 
+    is_prime[0] = is_prime[1] = false;
+    for(int i=2; i*i<=n; ++i) {
+        if(is_prime[i]) {
+            for(int j=i*i; j<=n; j+=i) is_prime[j]=false;
+        }
+    }  
+    vi prime; f(i,2,n+1) if(is_prime[i]) prime.pb(i);
+    return prime;
 }
 // find all factors of n -- O(sqrt(n))
 vi factors(int n) {
@@ -850,7 +852,19 @@ int binMultiply(int x, int n, int m) {
     }
     return res;
 }
-
+// diophantine equation
+int diophantine(int a, int b, int& x, int& y) {
+    if (b == 0) {
+        x = 1;
+        y = 0;
+        return a;
+    }
+    int x1, y1;
+    int d = diophantine(b, a % b, x1, y1);
+    x = y1;
+    y = x1 - y1 * (a / b);
+    return d;
+}
 
 // Numbers of factors  --  O(sqrt(n))
 int no_of_factors(int n) {
@@ -945,7 +959,7 @@ bool isMatching(string s, string t) {
 // KMP Algorithm   --   O(n+m)
 vi getLps(string pattern) {
     int n = pattern.size();
-    vi lps(n); // longest prefix which is also a sufix
+    vi lps(n); // longest prefix which is also a suffix
     int i=1, j=0;
     while(i<n) {
         if(pattern[i]==pattern[j]) {
