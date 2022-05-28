@@ -18,6 +18,7 @@ using namespace std;
 #define inf             1e18
 #define ps(x,y)         fixed<<setprecision(y)<<x
 #define w(x)            int x; cin>>x; while(x--)
+#define dtb(n,x)        bitset<n>(x).to_string()
 #define yes             cout<<"YES"
 #define no              cout<<"NO"
 #define endl            '\n'
